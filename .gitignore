@@ -1,0 +1,24 @@
+*.pyc
+__pycache__/
+*.swp
+
+*/static/*/dist
+media/
+/static/
+
+*.retry
+
+.venv
+
+*.sql
+
+*.csv
+
+# Local dev
+local_*.*
+
+#Ansible Check output
+check.yaml
+
+# Debugging
+*.prof
