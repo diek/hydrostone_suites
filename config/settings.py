@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-DJANGO_APPS = (
+DJANGO_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -38,16 +38,17 @@ DJANGO_APPS = (
     "django.contrib.staticfiles",
     "django.contrib.admin",
     "django.contrib.humanize",
-)
+]
 
-THIRD_PARTY_APPS = (
+THIRD_PARTY_APPS = [
     "django_extensions",
     "debug_toolbar",
-)
+    "phonenumber_field",
+]
 
-PROJECT_APPS = (
+PROJECT_APPS = [
     "users.apps.UsersConfig"
-)
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -66,7 +68,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,6 +82,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+
+# Django Debug Toolbar
+def show_toolbar(request):
+    return True
+
+
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+}
+
+INTERNAL_IPS = ('127.0.0.1')
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -110,6 +123,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+AUTH_USER_MODEL = "users.CustomUser"
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/

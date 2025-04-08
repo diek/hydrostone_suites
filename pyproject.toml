@@ -1,12 +1,13 @@
 [project]
 name = "hydrostone-suites"
 version = "0.1.0"
-description = "Add your description here"
+description = "Management program for a small apt building (25 Units)"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "django>=5.2",
     "django-debug-toolbar>=5.1.0",
     "django-extensions>=3.2.3",
+    "django-phonenumber-field[phonenumbers]>=8.0.0",
     "werkzeug>=3.1.3",
 ]
