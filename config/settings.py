@@ -47,7 +47,8 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
-    "users.apps.UsersConfig"
+    "users.apps.UsersConfig",
+    "tasks.apps.TasksConfig"
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
