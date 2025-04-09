@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Task, Contacts
+from .models import Task, Contact
 
 
 @admin.register(Task)
@@ -24,8 +24,8 @@ class TaskAdmin(admin.ModelAdmin):
     )
 
 
-@admin.register(Contacts)
-class ContactsAdmin(admin.ModelAdmin):
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'contact_name',

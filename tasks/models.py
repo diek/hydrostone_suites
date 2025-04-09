@@ -20,7 +20,7 @@ class Task(models.Model):
         return f"Task assigned by {self.assigned_by} on {self.date_assigned.strftime('%Y-%m-%d')}"
 
 
-class Contacts(models.Model):
+class Contact(models.Model):
     contact_name = models.CharField(max_length=255)
     specialty = models.TextField()
     primary_phone = PhoneNumberField(blank=True, null=True)
