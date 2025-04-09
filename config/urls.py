@@ -14,10 +14,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 from debug_toolbar.toolbar import debug_toolbar_urls
 
+admin.site.site_title = "Hydrostone Suites site admin"
+admin.site.site_header = "Hydrostone Suites administration"
+admin.site.index_title = "Site administration"
+# https://github.com/django/django/blob/main/django/contrib/admin/sites.py
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("secretadmin/", admin.site.urls),
 ] + debug_toolbar_urls()
