@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-n($8!eh+7lk!105t2vifo)zu60minn_d6nik#g6$b14kx2alk2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['170.64.142.53']
+ALLOWED_HOSTS = ["hydrostonesuites.com", "170.64.142.53"]
 
 
 # Application definition
@@ -144,11 +144,11 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "static"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
