@@ -100,9 +100,17 @@ INTERNAL_IPS = ('127.0.0.1')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'hydrostone.db',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'hydrostone',
+        'USER': 'hydrostone',
+        'PASSWORD': '1Ak5RTQt7mtw0OREsfPhJYzXIak41gnrm5NWYEosCeIduJck10awIzoys1wvbL8',
+        'HOST': 'localhost',
+        'PORT': '',                      # Set to empty string for default.
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'hydrostone.db',
+    # }
 }
 
 
