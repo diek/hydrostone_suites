@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+from os import getenv
+from dotenv import load_dotenv
+load_dotenv()
+
+SECRET_KEY = getenv('SECRET_KEY')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n($8!eh+7lk!105t2vifo)zu60minn_d6nik#g6$b14kx2alk2'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -99,19 +105,15 @@ INTERNAL_IPS = ('127.0.0.1')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hydrostone',
-        'USER': 'hydrostone',
-        'PASSWORD': '1Ak5RTQt7mtw0OREsfPhJYzXIak41gnrm5NWYEosCeIduJck10awIzoys1wvbL8',
-        'HOST': 'localhost',
-        'PORT': '',                      # Set to empty string for default.
-    }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'hydrostone.db',
-    # }
+    "default": (
+        dj_database_url.config()
+        if getenv("DATABASE_URL")
+        else {"ENGINE": "django.db.backends.postgresql", "NAME": "hydrostone"}
+    )
 }
+
+DATABASES["default"].update({"ATOMIC_REQUESTS": True, "CONN_MAX_AGE": 600})
+
 
 
 # Password validation
