@@ -9,6 +9,7 @@ media/
 *.retry
 
 .venv
+.env
 
 *.sql
 *.db
@@ -21,5 +22,7 @@ local_*.*
 #Ansible Check output
 check.yaml
 
-# Debugging
-*.prof
+# uv stuff
+.python-version
+pyproject.toml
+uv.lock
