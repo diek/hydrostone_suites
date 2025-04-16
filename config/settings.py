@@ -151,8 +151,8 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_URL = "/webapps/hydrostone/static"
+STATIC_ROOT = "/webapps/hydrostone/static"
 
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",
