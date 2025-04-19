@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+from distutils.util import strtobool
 from pathlib import Path
 import dj_database_url
 from os import getenv
@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = bool(strtobool(getenv('DEBUG', 'True')))
 
 # ALLOWED_HOSTS = ["hydrostonesuites.com", "170.64.142.53"]
 ALLOWED_HOSTS = ['*']
