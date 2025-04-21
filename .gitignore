@@ -26,3 +26,10 @@ check.yaml
 .python-version
 pyproject.toml
 uv.lock
+
+# Log Files
+*.log
+
+# Nginx.conf
+nginx.conf
+
