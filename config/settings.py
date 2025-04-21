@@ -9,15 +9,24 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+import sentry_sdk
 from distutils.util import strtobool
 from pathlib import Path
 import dj_database_url
 from os import getenv
 from dotenv import load_dotenv
+from django.contrib.messages import constants as messages
 load_dotenv()
 
 SECRET_KEY = getenv('SECRET_KEY')
 
+
+sentry_sdk.init(
+    dsn="https://2c0f0e85ffc388beaf19bf265fd61fd2@o150666.ingest.us.sentry.io/4507493289885696",
+    # Add data like request headers and IP for users,
+    # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
+    send_default_pii=True,
+)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -70,6 +79,14 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'secondary',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
+}
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [

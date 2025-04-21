@@ -24,6 +24,12 @@ admin.site.site_header = "Hydrostone Suites administration"
 admin.site.index_title = "Site administration"
 # https://github.com/django/django/blob/main/django/contrib/admin/sites.py
 
+
+def trigger_error(request):
+    return 1 / 0
+
+
 urlpatterns = [
     path("secretadmin/", admin.site.urls),
+    path('sentry-debug/', trigger_error),
 ] + debug_toolbar_urls()

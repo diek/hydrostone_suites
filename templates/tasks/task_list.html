@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Task List{% endblock %}
+{% block content %}
+<h1 class="mb-4">All Tasks</h1>
+<a href="{% url 'task_create' %}" class="btn btn-primary mb-3">Create New Task</a>
+
+<ul class="list-group">
+    {% for task in tasks %}
+        <li class="list-group-item">
+            <a href="{% url 'task_detail' task.pk %}">
+                {{ task.task }} (Assigned by {{ task.assigned_by }})
+            </a>
+        </li>
+    {% empty %}
+        <li class="list-group-item">No tasks available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
