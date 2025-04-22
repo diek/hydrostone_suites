@@ -31,5 +31,8 @@ uv.lock
 *.log
 
 # Nginx.conf
-nginx.conf
+*nginx.conf
+
+# Excel
+*.xlsx
 
