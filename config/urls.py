@@ -17,7 +17,6 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from debug_toolbar.toolbar import debug_toolbar_urls
 
 admin.site.site_title = "Hydrostone Suites site admin"
 admin.site.site_header = "Hydrostone Suites administration"
@@ -34,4 +33,4 @@ urlpatterns = [
     path('sentry-debug/', trigger_error),
     path('users/', include('users.urls')),
     path("", include("tasks.urls"), name="tasks")
-] + debug_toolbar_urls()
+]
