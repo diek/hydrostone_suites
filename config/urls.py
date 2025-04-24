@@ -32,5 +32,6 @@ def trigger_error(request):
 urlpatterns = [
     path("secretadmin/", admin.site.urls),
     path('sentry-debug/', trigger_error),
+    path('users/', include('users.urls')),
     path("", include("tasks.urls"), name="tasks")
 ] + debug_toolbar_urls()
